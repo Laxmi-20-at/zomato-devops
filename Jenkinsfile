@@ -187,12 +187,6 @@ pipeline {
 
         stage('Production Deployment') {
 
-            when {
-
-                branch 'main'
-
-            }
-
             steps {
 
                 sh """
@@ -218,12 +212,6 @@ pipeline {
         }
 
         stage('Production Validation') {
-
-            when {
-
-                branch 'main'
-
-            }
 
             steps {
 
