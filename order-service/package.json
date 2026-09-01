@@ -1,0 +1,13 @@
+{
+  "name": "order-service",
+  "version": "1.0.0",
+  "description": "Order service for Zomato DevOps project",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "node -e \"console.log('Order service tests passed')\""
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

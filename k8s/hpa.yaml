@@ -1,0 +1,87 @@
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+
+metadata:
+  name: food-service-hpa
+  namespace: production
+
+spec:
+
+  scaleTargetRef:
+
+    apiVersion: apps/v1
+
+    kind: Deployment
+
+    name: food-service
+
+  minReplicas: 3
+
+  maxReplicas: 10
+
+  metrics:
+
+  - type: Resource
+
+    resource:
+
+      name: cpu
+
+      target:
+
+        type: Utilization
+
+        averageUtilization: 70
+
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+
+metadata:
+  name: order-service-hpa
+  namespace: production
+
+spec:
+
+  scaleTargetRef:
+
+    apiVersion: apps/v1
+
+    kind: Deployment
+
+    name: order-service
+
+  minReplicas: 3
+
+  maxReplicas: 10
+
+  metrics:
+
+  - type: Resource
+
+    resource:
+
+      name: cpu
+
+      target:
+
+        type: Utilization
+
+        averageUtilization: 70
+
+
+Normal traffic
+     ↓
+3 pods
+
+High traffic
+     ↓
+CPU > 70%
+     ↓
+Kubernetes
+     ↓
+4 pods
+5 pods
+6 pods
+...
+     ↓
+Maximum 10

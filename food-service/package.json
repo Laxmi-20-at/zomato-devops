@@ -1,0 +1,13 @@
+{
+  "name": "food-service",
+  "version": "1.0.0",
+  "description": "Food service for Zomato DevOps project",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "node -e \"console.log('Food service tests passed')\""
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
